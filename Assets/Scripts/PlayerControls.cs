@@ -9,6 +9,8 @@ public class PlayerControls : MonoBehaviour
     private float horizontalMovement; // The horizontal input from the user
     private float verticalMovement; // The vertical input from the user
     private Rigidbody playerRigidbody; // The player's rigidbody component
+    [SerializeField] private RangedWeapon _rangedWeapon;
+    [SerializeField] private GameObject _meleeWeapon;
 
     void Start()
     {
@@ -23,6 +25,11 @@ public class PlayerControls : MonoBehaviour
         if (Input.GetButtonDown("Jump")) // If the user presses the jump button
         {
             playerRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); // Add upward force to the player's rigidbody
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            _rangedWeapon.Shoot();
         }
     }
 
