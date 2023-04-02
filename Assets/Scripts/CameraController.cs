@@ -1,28 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player; // The player's transform component
-    public float sensitivity = 100f; // The sensitivity of the camera's rotation
+    public Transform player;
+    public float sensitivity = 100f;
 
-    private float xRotation = 0f; // The x rotation of the camera
+    private float xRotation = 0f;
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; // Lock the cursor to the center of the screen
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime; // Get the horizontal mouse input
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime; // Get the vertical mouse input
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
 
-        xRotation -= mouseY; // Subtract the vertical mouse input from the x rotation of the camera
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Clamp the x rotation between -90 and 90 degrees
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // Set the camera's x rotation
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         player.Rotate(Vector3.up * mouseX); 
     }
 }

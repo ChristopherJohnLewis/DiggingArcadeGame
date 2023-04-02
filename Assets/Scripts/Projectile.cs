@@ -4,11 +4,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 2;
-    private float damage = 0;
+    [SerializeField] private float damage = 1;
 
-    private void Start()
+    private void Awake()
     {
-        Destroy(this, lifeTime);
+        Destroy(gameObject, lifeTime);
     }
     
     private void OnCollisionEnter(Collision collision)
@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
             float dealtDamage = de.DealDamage(damage);
             if (dealtDamage >= damage)
             {
-                Destroy(this);
+                Destroy(gameObject);
             }
             else
             {

@@ -15,21 +15,22 @@ public class RangedWeapon : MonoBehaviour
         _timeSinceLastShot += Time.deltaTime;
     }
 
-    public void Shoot()
+    public void Shoot(Collider playerCollider)
     {
         if (_timeSinceLastShot >= (1/_shotsPerSecond))
         {
             _timeSinceLastShot = 0;
-            FireProjectiles();
+            FireProjectiles(playerCollider);
         }
     }
 
-    private void FireProjectiles()
+    private void FireProjectiles(Collider playerCollider)
     {
         for (int i = 0; i < _numberOfProjectiles; i++)
         {
             Vector3 position = transform.position;
-            GameObject projectile = Instantiate(_projectile, transform.position, transform.rotation);
+            GameObject projectile = Instantiate(_projectile, transform.position, transform.localRotation);
+            Physics.IgnoreCollision(projectile.GetComponent<Collider>(), playerCollider);
             projectile.transform.position = new Vector3(position.x + Random.Range(-transform.localScale.x/2, transform.localScale.x/2),
                 position.y + Random.Range(-transform.localScale.y/2, transform.localScale.y/2), position.z);
             projectile.GetComponent<Rigidbody>().AddForce(projectile.transform.forward * _projectileSpeed, ForceMode.Impulse);
