@@ -1,0 +1,16 @@
+{
+    "name": "Terrain",
+    "rootNamespace": "",
+    "references": [
+        "GUID:04dce8a3e401a4741a9418fbd14c0a60"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

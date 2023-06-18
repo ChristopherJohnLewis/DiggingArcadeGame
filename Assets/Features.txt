@@ -1,0 +1,6 @@
+Lighting mechanic
+    underground, so user has to do something to recover light
+    maybe there are ceiling lights to a certain extent
+Some terrain gets destroyed with the weapons
+    further down you go the harder the terrain
+    generated terrain dynamically, with pockets of caves that might have something like a merchant or other cool places

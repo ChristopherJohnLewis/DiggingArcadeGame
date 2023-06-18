@@ -14,7 +14,7 @@ public class DamageableEntity : MonoBehaviour
         if (health <= 0)
         {
             damageDealt = health;
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         return damageDealt;
